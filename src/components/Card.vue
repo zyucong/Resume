@@ -1,7 +1,9 @@
 <template>
     <div class="card-container">
-      <div v-if="plain" class="poster plain-bg">
+      <!-- <div v-if="plain" class="poster plain-bg"> -->
+      <div :id="card_id" class="poster plain-bg">
         <div class="placeholder">
+          <p>{{test}} {{card_id}}</p>
           <slot></slot>
         </div>
       </div>
@@ -12,7 +14,7 @@
 
 export default {
     name: "Card",
-    props: ["card-id", "color", "plain", "component"]
+    props: ["card_id", "color", "plain", "test"]
 }
 </script>
 
