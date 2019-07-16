@@ -3,7 +3,7 @@
       <!-- <div v-if="plain" class="poster plain-bg"> -->
       <div :id="card_id" class="poster plain-bg">
         <div class="placeholder">
-          <p>{{test}} {{card_id}}</p>
+          <!-- <p>{{test}} {{card_id}}</p> -->
           <slot></slot>
         </div>
       </div>
@@ -14,7 +14,7 @@
 
 export default {
     name: "Card",
-    props: ["card_id", "color", "plain", "test"]
+    props: ["card_id", "color", "plain", "test", "projects"]
 }
 </script>
 
@@ -30,10 +30,6 @@ export default {
 .placeholder {
     width: 100%;
     height: 100%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 </style>
