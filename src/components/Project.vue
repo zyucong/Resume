@@ -3,7 +3,7 @@
     <div class="title">
       <h1>{{title}}</h1>
     </div>
-    <div class="container">
+    <div class="container" :style="{'border-color': color}">
       <div v-for="(project, index) in projects" :key="index">
         <!-- <p>{{project.title}}</p>
         <p>{{project.description}}</p> -->
@@ -28,7 +28,7 @@
 <script>
 export default {
   name: 'Project',
-  props: ['projects', 'title']
+  props: ['projects', 'title', 'color']
 }
 </script>
 
@@ -53,8 +53,10 @@ export default {
   width: 60vw;
   height: 70vh;
   border-top: 3px solid;
-  padding: 3rem;
-  padding-top: 5rem;
+  border-right: 3px solid;
+  border-left: 3px solid;
+  padding: 4rem;
+  /* padding-top: 4rem; */
   display: flex;
   flex-direction: column;
 }
@@ -62,7 +64,7 @@ export default {
 .project-container .proj {
   height: 7rem;
   margin: 0 auto;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 .project-container .proj .proj-title {
   height: 40%;

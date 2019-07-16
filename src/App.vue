@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <Dots :num="this.cards.length" :selected="this.currentCard" :switch="updateCard" />
     <Card v-for="(card, index) in cards" :key="index" :plain="card.plain" :color="card.color" :card_id="card.id" :test="card.test">
       <!-- <Glider v-if="component == 'title'" name="Julian Zhu" /> -->
-      <Project v-if="card.component == 'project'" :projects="card.content" :title="card.title" />
+      <Project v-if="card.component == 'project'" :projects="card.content" :title="card.title" :color="card.border_color" />
     </Card>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import Dots from '@/components/Dots.vue'
 import Card from '@/components/Card.vue'
 import Project from '@/components/Project.vue'
 import { setTimeout } from 'timers';
@@ -19,6 +18,7 @@ import { setTimeout } from 'timers';
 export default {
   name: 'app',
   components: {
+    Dots,
     Card,
     Project
     // Glider
@@ -31,6 +31,7 @@ export default {
         {id: "inner1", plain: true, color: '#272B30', component: "title", test: "card1",},
         {id: "inner2", plain: false, image: true, color: null, test: "card2", title: "Web App",
         component: "project",
+        border_color: '#29ABE0',
         content: [
           {
             title: "Sokoban Game",
@@ -50,6 +51,7 @@ export default {
         ]},
         {id: "inner3", plain: false, image: true, color: null, test: "card3", title: "Little Script", 
         component: "project",
+        border_color: "#93C54B",
         content: [
           {
             title: "Enrolment Monitor",
@@ -79,25 +81,59 @@ export default {
     document.removeEventListener("wheel", this.handleScroll);
   },
   methods: {
+    getCurrentCard() {
+      return document.getElementById(this.cards[this.currentCard].id);
+    },
+    haltWheel() {
+      document.removeEventListener("wheel", this.handleScroll);
+      setTimeout(() => {document.addEventListener("wheel", this.handleScroll);}, 1000);
+    },
     handleScroll(e) {
       const animation_time = 800
       if (e.deltaY > this.threshold && this.currentCard < this.cards.length) {
-        document.removeEventListener("wheel", this.handleScroll);
-        setTimeout(() => {document.addEventListener("wheel", this.handleScroll);}, 1000);
-        const currentCard = document.getElementById(this.cards[this.currentCard].id);
+        // document.removeEventListener("wheel", this.handleScroll);
+        // setTimeout(() => {document.addEventListener("wheel", this.handleScroll);}, 1000);
+        // const currentCard = document.getElementById(this.cards[this.currentCard].id);
+        this.haltWheel();
+        const currentCard = this.getCurrentCard();
         ++this.currentCard;
-        const nextCard = document.getElementById(this.cards[this.currentCard].id);
+        // const nextCard = document.getElementById(this.cards[this.currentCard].id);
+        const nextCard = this.getCurrentCard();
         window.Velocity(currentCard, {'margin-top': '-100vh', 'opacity': 0}, animation_time);
         window.Velocity(nextCard, {'opacity': 1}, animation_time);
       }
       if (e.deltaY < - this.threshold && this.currentCard > 0) {
-        document.removeEventListener("wheel", this.handleScroll);
-        setTimeout(() => {document.addEventListener("wheel", this.handleScroll);}, 1000);
-        const currentCard = document.getElementById(this.cards[this.currentCard].id);
+        // document.removeEventListener("wheel", this.handleScroll);
+        // setTimeout(() => {document.addEventListener("wheel", this.handleScroll);}, 1000);
+        // const currentCard = document.getElementById(this.cards[this.currentCard].id);
+        this.haltWheel();
+        const currentCard = this.getCurrentCard();
         --this.currentCard;
-        const prevCard = document.getElementById(this.cards[this.currentCard].id);
+        // const prevCard = document.getElementById(this.cards[this.currentCard].id);
+        const prevCard = this.getCurrentCard();
         window.Velocity(currentCard, {'opacity': 0}, animation_time);
         window.Velocity(prevCard, {'opacity': 1, 'margin-top': '0vh'}, animation_time);
+      }
+    },
+    updateCard(idx) {
+      const animation_time = 800;
+      this.haltWheel();
+      console.log(idx);
+      const goingdown = idx > this.currentCard ? true : false;
+      console.log(goingdown);
+      const currentCard = this.getCurrentCard();
+      this.currentCard = idx;
+      const targetCard = this.getCurrentCard();
+      console.log(currentCard, targetCard);
+      if (goingdown) {
+        window.Velocity(currentCard, {'margin-top': '-100vh', 'opacity': 0}, animation_time);
+        window.Velocity(targetCard, {
+          // 'margin-top': '0vh', 
+          'opacity': 1
+          }, animation_time);
+      } else {
+        window.Velocity(currentCard, {'margin-top': '0vh', 'opacity': 0}, animation_time);
+        window.Velocity(targetCard, {'margin-top': '0vh', 'opacity': 1}, animation_time);
       }
     }
   }
