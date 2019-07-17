@@ -51,12 +51,9 @@ export default {
 
 .project-container .container {
   width: 60vw;
-  height: 70vh;
+  /* height: 70vh; */
   border-top: 3px solid;
-  border-right: 3px solid;
-  border-left: 3px solid;
   padding: 4rem;
-  /* padding-top: 4rem; */
   display: flex;
   flex-direction: column;
 }

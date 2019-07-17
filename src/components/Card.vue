@@ -18,18 +18,34 @@ export default {
 }
 </script>
 
-<style scoped>
-.plain-bg {
+<style>
+.card-container .plain-bg {
     background-color: #272B30;
 }
-.poster {
+.card-container .poster {
     width: 100vw;
     height: 100vh;
 }
-
-.placeholder {
+.card-container .placeholder {
     width: 100%;
     height: 100%;
 }
-
+.fadeOutDown {
+  /* opacity: 0; */
+  margin-top: 100vh;
+  /* transition-timing-function: ease-in-out; */
+  transition: 1s;
+}
+.fadeOutUp {
+  /* opacity: 0; */
+  margin-top: -100vh;
+  /* transition-timing-function: ease-in-out; */
+  transition: 1s;
+}
+.fadeIn {
+  /* opacity: 1; */
+  margin-top: 0vh;
+  /* transition-timing-function: ease-in-out; */
+  transition: 1s;
+}
 </style>
