@@ -25,9 +25,9 @@ export default {
 .dots-container {
   display: flex;
   /* width: 10vw; */
-  height: 100vh;
-  position: absolute;
   align-items: center;
+  height: 100%;
+  position: fixed;
   z-index: 10;
 }
 .dots-container .dots {
@@ -40,6 +40,7 @@ export default {
   color: white;
 }
 .dots-container .material-icons:hover {
+  cursor: pointer;
   opacity: 0.5;
 }
 </style>

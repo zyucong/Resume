@@ -35,6 +35,7 @@ export default {
 <style>
 .project-container{
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   color: white;
@@ -43,19 +44,20 @@ export default {
 
 .project-container .title {
   font-size: 4rem;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
-  /* margin: 0; */
-  /* height: 30vh; */
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .project-container .container {
-  width: 60vw;
+  flex: 1;
+  width: 60%;
   /* height: 70vh; */
   border-top: 3px solid;
+  border-left: 3px solid;
+  border-right: 3px solid;
   padding: 4rem;
-  display: flex;
-  flex-direction: column;
+  padding-top: 5rem;
+  padding-bottom: 0;
 }
 
 .project-container .proj {
