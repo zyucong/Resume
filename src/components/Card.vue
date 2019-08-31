@@ -2,7 +2,9 @@
     <div class="card-container">
       <!-- <div v-if="plain" class="poster plain-bg"> -->
       <div :id="card.id" class="poster plain-bg">
+          <Head v-if="card.component == 'title'" :name="card.name"/>
           <Project v-if="card.component == 'project'" :projects="projects" :title="card.title" :color="card.border_color" />
+          <Foot v-if="card.component == 'footer'"/>
           <!-- <p>{{projects}}</p> -->
           <!-- <p>{{test}} {{card_id}}</p> -->
           <!-- <slot></slot> -->
@@ -11,12 +13,16 @@
 </template>
 
 <script>
+import Head from '@/components/Head.vue'
 import Project from '@/components/Project.vue'
+import Foot from '@/components/Foot.vue'
 export default {
     name: "Card",
     props: ['card', 'projects'],
     components: {
-      Project
+      Head,
+      Project,
+      Foot
     }
 }
 </script>

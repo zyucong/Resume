@@ -27,7 +27,7 @@ export default {
       currentCard: 0,
       animation_time: 800,
       cards: [
-        {id: "inner1", plain: true, color: '#272B30', component: "title", title: "card1",},
+        {id: "inner1", color: '#272B30', component: "title", title: "card1", name: "Yingcong Zhu"},
         {id: "inner2", plain: false, image: true, color: null, test: "card2", title: "Web App",
         component: "project",
         border_color: '#29ABE0',
@@ -58,7 +58,7 @@ export default {
             link: "http://github.com"
           }
         ]},
-        // {id: "inner4", plain: true, color: '#272B30', component: "project", title: "card4",},
+        {id: "inner4", color: '#272B30', component: "footer", title: "card4",}
       ]
     }
   },
