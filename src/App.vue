@@ -35,12 +35,12 @@ export default {
           {
             title: "Sokoban Game",
             description: "A sokoban game implemented with UI designed found on Internet",
-            link: "http://github.com"
+            link: "http://sokoban.yingcongzhu.me"
           },
           {
             title : "My Resume (This Site)",
             description: "Apply skills with Vue on this site",
-            link: "http://github.com"
+            link: "https://github.com/zyucong/Resume"
           }
         ]},
         {id: "inner3", plain: false, image: true, color: null, test: "card3", title: "Little Script", 
@@ -50,12 +50,12 @@ export default {
           {
             title: "Enrolment Monitor",
             description: "A script to periodically detect if there is vacancy on specific course",
-            link: "http://github.com"
+            link: "https://github.com/zyucong/enrolment-monitor"
           },
           {
             title: "legit",
             description: "A script to mimic the behaviour of git",
-            link: "http://github.com"
+            link: "https://github.com/zyucong/legit"
           }
         ]},
         {id: "inner4", color: '#272B30', component: "footer", title: "card4",}

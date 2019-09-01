@@ -4,16 +4,28 @@
       <h1>Connect with me!</h1>
     </div>
     <div class="socials">
-      <a class="link" href="">Github</a>
-      <a class="link" href="">LinkedIn</a>
-      <a class="link" href="">Email</a>
+      <a href="https://github.com/zyucong"><github-circle class="link" /></a>
+      <a href="https://www.linkedin.com/in/julian-zhu-666a74168/"><linkedin-box class="link" /></a>
+      <a href="mailto:yingcongzhu@gmail.com"><email class="link" /></a>
+      <!-- <a class="link" href="">Github</a> -->
+      <!-- <a class="link" href="">LinkedIn</a>
+      <a class="link" href="">Email</a> -->
     </div>
   </div>
 </template>
 
 <script>
+import GithubCircle from 'vue-material-design-icons/GithubCircle.vue';
+import LinkedinBox from 'vue-material-design-icons/LinkedinBox.vue';
+import Email from 'vue-material-design-icons/Email.vue';
+
 export default {
-  name: "Foot"
+  name: "Foot",
+  components: {
+    GithubCircle,
+    LinkedinBox,
+    Email
+  }
 }
 </script>
 
@@ -34,14 +46,16 @@ export default {
   font-size: 3rem;
 }
 .footer .socials {
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-/* .footer .socials .link {
-  display: flex;
+.footer .socials .link {
+  color: white;
+  font-size: 2rem;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
-} */
+  justify-content: center; */
+}
 </style>
