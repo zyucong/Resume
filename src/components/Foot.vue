@@ -7,9 +7,6 @@
       <a href="https://github.com/zyucong"><github-circle class="link" /></a>
       <a href="https://www.linkedin.com/in/julian-zhu-666a74168/"><linkedin-box class="link" /></a>
       <a href="mailto:yingcongzhu@gmail.com"><email class="link" /></a>
-      <!-- <a class="link" href="">Github</a> -->
-      <!-- <a class="link" href="">LinkedIn</a>
-      <a class="link" href="">Email</a> -->
     </div>
   </div>
 </template>

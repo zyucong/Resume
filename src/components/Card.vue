@@ -3,7 +3,7 @@
       <!-- <div v-if="plain" class="poster plain-bg"> -->
       <div :id="card.id" class="poster plain-bg">
           <Head v-if="card.component == 'title'" :name="card.name"/>
-          <Project v-if="card.component == 'project'" :projects="projects" :title="card.title" :color="card.border_color" />
+          <Project v-if="card.component == 'project'" :projects="projects" :title="card.title" :color="card.border_color" :bg="card.background"/>
           <Foot v-if="card.component == 'footer'"/>
           <!-- <p>{{projects}}</p> -->
           <!-- <p>{{test}} {{card_id}}</p> -->

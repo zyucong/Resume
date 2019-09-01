@@ -1,12 +1,10 @@
 <template>
-  <div class="project-container">
+  <div class="project-container" :style="{'background-image': 'url('+ bg +')'}">
     <div class="title">
       <h1>{{title}}</h1>
     </div>
     <div class="container" :style="{'border-color': color}">
       <div v-for="(project, index) in projects" :key="index">
-        <!-- <p>{{project.title}}</p>
-        <p>{{project.description}}</p> -->
         <div class="proj">
           <div class="proj-title">
             <h2>{{project.title}}</h2>
@@ -28,7 +26,7 @@
 <script>
 export default {
   name: 'Project',
-  props: ['projects', 'title', 'color']
+  props: ['projects', 'title', 'color', 'bg']
 }
 </script>
 
@@ -40,6 +38,14 @@ export default {
   align-items: center;
   color: white;
   justify-content: center;
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .project-container .title {
@@ -51,6 +57,7 @@ export default {
 .project-container .container {
   flex: 1;
   width: 60%;
+  background-color: #272B30;
   /* height: 70vh; */
   border-top: 3px solid;
   border-left: 3px solid;

@@ -27,38 +27,55 @@ export default {
       currentCard: 0,
       animation_time: 800,
       cards: [
-        {id: "inner1", color: '#272B30', component: "title", title: "card1", name: "Yingcong Zhu"},
-        {id: "inner2", plain: false, image: true, color: null, test: "card2", title: "Web App",
-        component: "project",
-        border_color: '#29ABE0',
-        content: [
-          {
-            title: "Sokoban Game",
-            description: "A sokoban game implemented with UI designed found on Internet",
-            link: "http://sokoban.yingcongzhu.me"
-          },
-          {
-            title : "My Resume (This Site)",
-            description: "Apply skills with Vue on this site",
-            link: "https://github.com/zyucong/Resume"
-          }
-        ]},
-        {id: "inner3", plain: false, image: true, color: null, test: "card3", title: "Little Script", 
-        component: "project",
-        border_color: "#93C54B",
-        content: [
-          {
-            title: "Enrolment Monitor",
-            description: "A script to periodically detect if there is vacancy on specific course",
-            link: "https://github.com/zyucong/enrolment-monitor"
-          },
-          {
-            title: "legit",
-            description: "A script to mimic the behaviour of git",
-            link: "https://github.com/zyucong/legit"
-          }
-        ]},
-        {id: "inner4", color: '#272B30', component: "footer", title: "card4",}
+        {
+          id: "inner1", 
+          color: '#272B30', 
+          component: "title", 
+          name: "Yingcong Zhu"
+        },
+        {
+          id: "inner2", 
+          title: "Web App",
+          component: "project",
+          border_color: '#29ABE0',
+          background: require("@/assets/web.png"),
+          content: [
+            {
+              title: "Sokoban Game",
+              description: "A sokoban game implemented with UI designed found on Internet",
+              link: "http://sokoban.yingcongzhu.me"
+            },
+            {
+              title : "My Resume (This Site)",
+              description: "Apply skills with Vue on this site",
+              link: "https://github.com/zyucong/Resume"
+            }
+          ]
+        },
+        {
+          id: "inner3", 
+          title: "Little Script", 
+          component: "project",
+          border_color: "#93C54B",
+          background: require("@/assets/programming.png"),
+          content: [
+            {
+              title: "Enrolment Monitor",
+              description: "A script to periodically detect if there is vacancy on specific course",
+              link: "https://github.com/zyucong/enrolment-monitor"
+            },
+            {
+              title: "legit",
+              description: "A script to mimic the behaviour of git",
+              link: "https://github.com/zyucong/legit"
+            }
+          ]
+        },
+        {
+          id: "inner4", 
+          color: '#272B30', 
+          component: "footer", 
+        }
       ]
     }
   },
