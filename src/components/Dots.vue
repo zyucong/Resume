@@ -43,4 +43,9 @@ export default {
   cursor: pointer;
   opacity: 0.5;
 }
+@media screen and (max-width: 720px) {
+  .dots-container {
+    display: none;
+  }
+}
 </style>

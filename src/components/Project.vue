@@ -114,4 +114,14 @@ export default {
   margin-bottom: 0;
   font-size: 1.5rem;
 }
+@media screen and (max-width: 720px) {
+  .project-container .container {
+    width: 100%;
+    padding: 2rem;
+    padding-top: 5rem;
+  }
+  .project-container .proj {
+    height: 10rem;
+  }
+}
 </style>
