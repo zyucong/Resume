@@ -35,7 +35,7 @@ export default {
     // fill the spaces before and after the sentences
     text.innerHTML += '&nbsp'.repeat(spaces);
     text.innerHTML += content;
-    text.innerHTML += '&nbsp'.repeat(spaces);
+    text.innerHTML += '&nbsp'.repeat(spaces + 100);
     let threshold = boxWidth + textWidth;
     setInterval(() => {
       if (box.scrollLeft >= threshold) {
@@ -65,6 +65,11 @@ export default {
   color: white;
   overflow: hidden;
   white-space: nowrap;
+}
+@media screen and (max-width: 720px) {
+  .head-container #ticker-box {
+    width: 60%;
+  }
 }
 .head-container #ticker-content {
   display: inline-block;
