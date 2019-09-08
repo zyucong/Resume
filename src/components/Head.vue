@@ -5,7 +5,7 @@
     </div>
     <!-- <hr> -->
     <div id="ticker-box">
-      <p id="ticker-content">I don't know why I should do a ticker, but I want to do it to show that I can do it. Now it is long enough to be infinitely scrolling. </p>
+      <p id="ticker-content">Thank you for visiting my site. Hope you like it!</p>
     </div>
     <div class="tags">
       <p class="tag">Student <i class="material-icons">person</i> Tutor <i class="material-icons">person</i> Nerd</p>
@@ -18,35 +18,31 @@ import { setInterval } from 'timers';
 export default {
   name: 'Head',
   props: ['name'],
-  data() {
-    return {
-      box: null,
-      text: null,
-      boxWidth: 0,
-      textWidth: 0
-    }
-  },
   mounted() {
-    this.box = document.getElementById("ticker-box");
-    this.text = document.getElementById("ticker-content");
-    this.boxWidth = this.box.offsetWidth;
-    this.textWidth = this.text.offsetWidth;
-    if (this.boxWidth > this.textWidth) return false;
-    this.text.innerHTML += this.text.innerHTML;
-    // console.log(this.box.scrollLeft);
-    // setInterval(this.scroll(), 10);
+    let box = document.getElementById("ticker-box");
+    let text = document.getElementById("ticker-content");
+    let boxWidth = box.offsetWidth;
+    let textWidth = text.offsetWidth;
+    // now even it is shorter, should be able to scroll
+    // if (this.boxWidth > this.textWidth) return false;
+    // save a copy
+    let content = text.innerHTML;
+    text.innerHTML = '&nbsp';
+    // console.log(text.offsetWidth);
+    // how long is a space
+    let spaces = boxWidth / text.offsetWidth;
+    text.innerHTML = '';
+    // fill the spaces before and after the sentences
+    text.innerHTML += '&nbsp'.repeat(spaces);
+    text.innerHTML += content;
+    text.innerHTML += '&nbsp'.repeat(spaces);
+    let threshold = boxWidth + textWidth;
     setInterval(() => {
-      if (this.box.scrollLeft >= this.text.offsetWidth / 2) {
-        this.box.scrollLeft = 0;
+      if (box.scrollLeft >= threshold) {
+        box.scrollLeft = 0;
       }
-      this.box.scrollLeft++;
-    }, 18);
-  },
-  methods: {
-    scroll() {
-      // console.log("interval");
-      // setInterval(this.scroll(), 20);
-    }
+      box.scrollLeft++;
+    }, 15);
   }
 }
 </script>
